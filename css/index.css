@@ -5,6 +5,13 @@
      font-family: Arial, Helvetica, sans-serif;
 }
 
+.centerColumn{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+}
+
 .containerGeneral{
      background-color: rgba(42, 113, 88, 0.822);
      width: 100vw;
@@ -12,8 +19,51 @@
 }
 
 .login{
-     background-color: whitesmoke;
-     width: 40vw;
-     height: 55vh;
+     background-color: #f5f5f5;
+     min-width: 40vw;
+     max-width: 40rem;
+     min-height: 55vh;
      border-radius: 10px;
+}
+
+.login button{
+     background-color: rgba(42, 113, 88, 0.822);
+     border: none;
+}
+
+.login h1{
+     color: rgba(42, 113, 88, 0.822);
+}
+
+.login h6{
+     font-size: .9rem;
+}
+
+.options{
+     background-color: #f5f5f5;
+     max-width: 30rem;
+     min-width: 15rem;
+     height: auto;
+     border-radius: 10px;
+}
+
+.options button{
+     background-color: rgb(26, 178, 143);
+     border: none;
+}
+
+#btnCloseMenu{
+     background-color: rgb(111, 106, 106);
+}
+
+.saque,
+.confirmacaoSaque{
+     background-color: #f5f5f5;
+     border-radius: 10px;
+}
+
+.saque input{
+     border: none;
+     background-color: transparent;
+     font-size: 2rem;
 }

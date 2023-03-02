@@ -4,37 +4,87 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>My Bank</title>
+     <title>Meu banco digital</title>
      <!--BOOTSTRAP-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
      <!--CSS-->
      <link rel="stylesheet" href="/css/index.css">
+     <!--FONTAWESOME-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
 </head>
 <body>
 
-     <main class="containerGeneral">
-          <div class="title">
-               <h1 class="py-3 h1 text-center text-white">My Bank</h1>
-          </div>
-          <section class="login mx-auto p-2">
-               <h4 class="py-3 text-center text-secondary">Antes de começar, se identifique e faça o login</h4>
-               <input class="form-control mb-3" type="text" placeholder="Digite seu email cadastrado">
+     <!--Container principal-->
+     <main class="centerColumn container-fluid containerGeneral">
+          <!--Tela de login-->
+          <section class="col-xl-6 container login mx-auto p-3 shadow" id="login">
+               <img class="d-block img mx-auto" src="/img/logo.png" width=50>
+               <h1 class="pb-3 h1 text-center">Meu Banco Digital</h1>
+               <h5 class="mb-3 text-center text-secondary">Informe o número da agência e da conta corrente para começar</h5>
                <section class="row">
                     <article class="col-xl-6">
-                         <input class="form-control mb-3" type="text" placeholder="Agência sem dígito">
+                         <label class="form-label text-secondary" for="numeroAgencia">Número da agência (sem dígito)</label>
+                         <input class="form-control mb-3" type="text" id="numeroAgencia">
                     </article>
                     <article class="col-xl-6">
-                         <input class="form-control mb-3" type="text" placeholder="Conta corrente com dígito">
+                         <label class="form-label text-secondary" for="numeroConta">Número da conta (com dígito)</label>
+                         <input class="form-control mb-3" type="text" id="numeroConta">
                     </article>
                </section>
-               <input class="form-control mb-3" type="text" placeholder="Digite sua senha de seis dígitos">
+               <label class="form-label text-secondary" for="senha">Senha (seis dígitos)</label>
+               <input class="form-control mb-3" type="password" id="senha">
+               <button class="btn btn-dark btn-block" id="btnAcessarConta">Acessar conta</button>
+               <h6 class="my-3 text-center text-secondary">Esqueceu sua senha? Clique <a href="#">aqui</a> para recuperar seu acesso</h6>
+          </section>
 
-               <button class="btn btn-primary btn-block">Acessar conta</button>
+          <!--Seção de opções do menu-->
+          <section class="col-xl-4 d-none options shadow" id="options">
+               <img class="d-block img my-3 mx-auto" src="/img/logo.png" width=40>
+               <h5 class="my-3 text-center text-secondary">Escolha a opção desejada para continuar</h5>
+               <div class="centerRow optionsButtons">
+                    <button class="btn btn-block text-white w-100" id="btnSaque"><i class="fa-solid fa-money-check-dollar"></i> Saque</button>
+                    <button class="btn btn-block text-white w-100" id="btnDeposito">Depósito</button>
+                    <button class="btn btn-block text-white w-100" id="btnConsulta">Consulta</button>
+               </div>
+               <button class="btn btn-block btn-secondary text-white mb-3 my-2 w-100" id="btnCloseMenu">Sair</button>
+          </section>
+
+          <!--Seção de Saque-->
+          <section class="col-xl-4 d-none saque shadow" id="saque">
+               <img class="d-block img my-3 mx-auto" src="/img/logo.png" width=40>
+               <h5 class="my-3 text-center text-secondary"><b>Meu Banco Digital</b></h5>
+               <h6 class="my-3 text-center text-secondary">Qual o valor que deseja sacar?</h6>
+               <input class="form-control text-center" type="number" placeholder="R$ 0,00" id="valorDesejado">
+               <section class="row">
+                    <article class="col-xl-6">
+                         <button class="btn btn-primary btn-block mb-4 my-2" id="btnConfirmarSaque">Confirmar saque</button>
+                    </article>
+                    <article class="col-xl-6">
+                         <button class="btn btn-danger btn-block mb-4 my-2" id="btnCancelarSaque">Cancelar</button>
+                    </article>
+               </section>
+          </section>
+
+          <!--Secção de confirmação de saque-->
+          <section class="col-xl-4 confirmacaoSaque d-none shadow" id="confirmacaoSaque">
+               <img class="d-block img my-3 mx-auto" src="/img/logo.png" width=40>
+               <h5 class="my-3 text-center text-secondary"><b>Meu Banco Digital</b></h5>
+               <h6 class="text-center text-secondary">Tem certeza que deseja confirmar o saque?</h6>
+               <div class="row">
+                    <div class="col-xl-6 mt-3">
+                         <button class="btn btn-block btn-success" id="btnConfirmaFechamentoModalSaque"><i class="fa-solid fa-check"></i> Confirmar</button>
+                    </div>
+                    <div class="col-xl-6 mt-3">
+                         <button class="btn btn-block btn-danger" id="btnCloseConfirm"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+                    </div>
+               </div>
           </section>
      </main>
      
+
      <!--JAVASCRIPT BOOTSTRAP-->
      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+     <script src="/js/app.js"></script>
 </body>
 </html>
