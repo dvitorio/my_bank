@@ -1,0 +1,19 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerGeneral{
+     background-color: rgba(42, 113, 88, 0.822);
+     width: 100vw;
+     height: 100vh;
+}
+
+.login{
+     background-color: whitesmoke;
+     width: 40vw;
+     height: 55vh;
+     border-radius: 10px;
+}
